@@ -1,0 +1,96 @@
+.header-course {
+    display: flex;
+    background-color: $blueColor2;
+    .info {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-content: center;
+        padding-left: 125px;
+        .breadcrumb {
+            color: $white;
+            margin-bottom: 25px;
+            .breadcrumb-item {
+                a {
+                    color: $white;
+                }
+                &.active {
+                    color: #ddd;
+                }
+            }
+        }
+        .title-inn-slide {
+            h1 {
+                font-size: 24px;
+                color: $white;
+            }
+            .subtitle {
+                color: $white;
+            }
+        }
+        .btn-io-bg {
+            color: $white !important;
+            background-color: $blueColor2;
+            background-color: $redColor !important;
+        }
+        .btn-io-bg-blue {
+            border: 1px solid $white;
+        }
+    }
+    .btn-block {
+        margin-top: 50px;
+        button {
+            margin-right: 15px;
+        }
+    }
+    .course-details {
+        width: 50%;
+        position: relative;
+        padding: 50px 0;
+        @include prefixer(clip-path, polygon(15% 0, 100% 0, 100% 100%, 0% 100%), webkit moz o);
+        &::after {
+            @include overlay($blueColor2, 0.6);
+        }
+        .image {
+            text-align: center;
+            position: relative;
+            z-index: 10;
+            height: 170px;
+            .hotel-image {
+                border-radius: 50%;
+                border: 7px solid #fff;
+            }
+        }
+        .details {
+            position: relative;
+            z-index: 10;
+            padding-left: 125px;
+            margin-top: 25px;
+            margin-left: 25px;
+            .details-box {
+                display: flex;
+                align-items: center;
+                margin-bottom: 10px;
+                i {
+                    color: $ofWhite;
+                    padding-right: 7px;
+                }
+                span {
+                    font-size: 16px;
+                    font-weight: 500;
+                    color: $ofWhite;
+                    &.price {
+                        color: $ofWhite;
+                        padding-right: 7px;
+                        font-weight: 500;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.btn-io-bg-blue {
+    border: 1px solid $white;
+}

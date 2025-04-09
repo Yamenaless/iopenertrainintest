@@ -1,0 +1,19 @@
+//
+// Main init file of global bootstrap, Font Awesome and theme functions, mixins, variables and config
+//
+
+// Bootstrap initializaton
+// @import "@bootstrap/scss/bootstrap";
+
+// @import "./bootstrap/scss/bootstrap";
+// Font Awesome initializaton
+@import "@fortawesome/fontawesome-free/css/all.css";
+
+// Custom functions & mixins3
+@import "../helpers/functions";
+@import "../helpers/mixins";
+@import "../helpers/variables";
+
+// base style
+@import "../base/typography";
+@import "../base//reset";

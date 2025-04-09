@@ -1,0 +1,23 @@
+.global-course {
+    .box {
+        border: 1px solid #ddd;
+        padding: 15px;
+        border-radius: 3px;
+        color: $blueColor2;
+        border-left: 5px solid $redColor;
+        margin-bottom: 15px;
+        .course-name {
+            margin-bottom: 15px;
+        }
+        a {
+            text-decoration: none;
+            color: $blackColor;
+            // text-align: center;
+            cursor: pointer;
+            i {
+                color: $redColor;
+                padding-right: 5px;
+            }
+        }
+    }
+}

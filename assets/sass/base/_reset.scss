@@ -1,0 +1,254 @@
+a {
+    text-decoration: none !important;
+}
+
+.nav-iopener {
+    padding-left: 0;
+}
+
+.form-control {
+    &:focus {
+        // border-color: gray;
+        box-shadow: none;
+    }
+}
+
+.form-select {
+    &:focus {
+        // border-color: gray;
+        box-shadow: none;
+    }
+}
+
+.breadcrumb {
+    .breadcrumb-item {
+        color: #fff;
+        a {
+            color: #fff;
+            text-decoration: none;
+        }
+        &.active {
+            color: #7b7b7b;
+        }
+        &::before {
+            color: $redColor !important;
+        }
+    }
+    @media (max-width: 568px) {
+        display: none;
+    }
+}
+
+.list-iopener {
+    list-style: none;
+    margin-top: 20px;
+    li {
+        margin: 8px 0;
+        position: relative;
+        &::before {
+            position: absolute;
+            left: -27px;
+            top: 3px;
+            color: $redColor;
+            content: "\f192";
+            font-family: "Font Awesome 5 Free";
+            // font-weight: 900;
+        }
+        ul {
+            list-style: none;
+            li {
+                &::before {
+                    content: "\f111";
+                    font-weight: normal;
+                    left: -23px;
+                    font-size: 12px;
+                    top: 5px;
+                }
+            }
+        }
+    }
+}
+
+.form-check {
+    .form-check-input {
+        display: none;
+        &:checked {
+            & + label {
+                color: $blueColor2;
+                &::after {
+                    @include prefixer(transform, scale(1) rotateZ(0deg), webkit moz o);
+                }
+            }
+        }
+    }
+    .form-check-label {
+        color: $blackColor;
+        font-size: 15px;
+        position: relative;
+        cursor: pointer;
+        // @include transitions(all 0.4s cubic-bezier(0.54, 0.01, 0, 1.49));
+        &:before {
+            content: "";
+            position: absolute;
+            top: 2px;
+            left: -20px;
+            width: 16px;
+            height: 16px;
+            border: 2px solid #ccc;
+            border-radius: 50%;
+        }
+        &:after {
+            content: "\f058";
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            font-size: 18px;
+            position: absolute;
+            top: -3px;
+            left: -21px;
+            color: $redColor;
+            @include prefixer(transform, scale(0) rotateZ(180deg), webkit moz o);
+            // @include transitions(all 0.4s cubic-bezier(0.54, 0.01, 0, 1.49));
+        }
+    }
+}
+
+@media (min-width: 991px) {
+    .dropdown {
+        &:hover {
+            .dropdown-menu {
+                display: block !important;
+            }
+        }
+    }
+}
+
+.form-control:-webkit-autofill,
+.form-control:-webkit-autofill:hover,
+.form-control:-webkit-autofill:focus,
+.form-control:-webkit-autofill:active {
+    box-shadow: 0 0 0 30px #f0f inset !important;
+}
+// filter side
+.filter-side {
+    z-index: 9999;
+    color: #fff;
+    background-color: $ofWhite2;
+    border-top: 5px solid $redColor;
+    // @include transitions(transition, all 0.7s ease-in-out);
+
+    > i {
+        padding: 10px;
+        cursor: pointer;
+        position: absolute;
+        top: 275px;
+        left: -50px;
+        background-color: gray;
+        color: $blueColor2;
+        border-radius: 5px 0 0 5px;
+    }
+    .title-filter-main {
+        color: $blueColor2;
+        font-weight: 500;
+        i {
+            color: $redColor;
+        }
+    }
+    .title-fil-sec {
+        color: $blackColor;
+        font-weight: 500;
+        i {
+            color: $redColor;
+        }
+    }
+    .filter-box {
+        height: 100%;
+        padding: 15px;
+        overflow-x: auto;
+        // start section form
+        .filter-form {
+            .first-fil {
+                border-bottom: 1px solid gray;
+                .form-group {
+                    .form-control {
+                        height: calc(1.5em + 0.75rem + 8px);
+                        &:focus {
+                            border-color: gray;
+                            box-shadow: none;
+                            & + label {
+                                top: -20px;
+                                left: 10px;
+                                color: $blueColor2;
+                                font-size: 12px;
+                                font-weight: 400;
+                            }
+                        }
+                    }
+                    label {
+                        top: 10px;
+                    }
+                }
+            }
+
+            .form-check {
+                margin-top: 15px;
+                margin-bottom: 15px;
+            }
+
+            .btn-search-fil {
+                background-color: gray;
+                color: #fff;
+                letter-spacing: 1.2px;
+            }
+        }
+    }
+}
+
+.cover-btn-home {
+    text-align: right !important;
+}
+
+// Whatsapp icon
+.whatsapp-box {
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    z-index: 999;
+}
+
+// About us
+.about {
+    .philosophy {
+        .image {
+            img {
+                margin-left: unset !important;
+                margin-right: auto;
+            }
+        }
+    }
+
+    .Objectives,
+    .vision {
+        .image {
+            margin-right: unset !important;
+            margin-left: -100px;
+        }
+    }
+    .Mission {
+        margin-left: unset !important;
+        margin-right: 5%;
+        .info {
+            padding-left: 0 !important;
+            // padding-right: 70px;
+        }
+        .image {
+            margin-left: 0 !important;
+            margin-right: -100px;
+        }
+    }
+}
+
+// nested list from editor
+ul[data-checked="false"] {
+    padding-left: 54px;
+    list-style-type: circle;
+}

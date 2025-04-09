@@ -1,0 +1,71 @@
+.btn-io-bg {
+    background-color: $redColor;
+    color: $ofWhite !important;
+    border-radius: 5px;
+    border: 0;
+    padding: 10px 40px !important;
+    font-size: 16px;
+    letter-spacing: 1px;
+    text-align: center;
+    @include prefixer(transition, all 0.5s ease, webkit moz o);
+    &:hover {
+        color: $redColor !important;
+        border: 1px solid $redColor !important;
+        background-color: white !important;
+    }
+}
+.btn-io-bg-blue {
+    background-color: $blueColor2 !important;
+    color: $ofWhite !important;
+    border-radius: 10px;
+    border: 0;
+    padding: 10px 40px !important;
+    font-size: 16px;
+    letter-spacing: 1px;
+    @include prefixer(transition, all 0.5s ease, webkit moz o);
+    &:hover {
+        color: $blueColor2 !important;
+        border: 1px solid $blueColor2 !important;
+        background-color: white !important;
+    }
+}
+
+.btn-io-outline {
+    border: 1px solid $redColor !important;
+    color: $redColor !important;
+    padding: 5px 35px;
+    font-size: 16px;
+    letter-spacing: 1px;
+    @include prefixer(transition, all 0.5s ease, webkit moz o);
+    &:hover {
+        color: #fff;
+        background-color: $redColor !important;
+    }
+}
+
+.btn-io-link {
+    color: $redColor !important;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 0.5x;
+    padding-left: 0;
+    position: relative;
+    padding-right: 15px;
+    &::after {
+        position: absolute;
+        content: "\f178";
+        font-weight: 600;
+        font-family: "Font Awesome 5 Free";
+        top: 50%;
+        right: -10px;
+        overflow: hidden;
+        @include prefixer(transform, translateY(-50%), webkit moz o);
+        @include prefixer(transition, all 0.5s ease, webkit moz o);
+    }
+    &:hover {
+        color: $redColor;
+        &::after {
+            right: -15px;
+        }
+    }
+}

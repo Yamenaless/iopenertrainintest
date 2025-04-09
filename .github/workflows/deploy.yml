@@ -1,0 +1,76 @@
+name: Deploy to cPanel
+
+on:
+  push:
+    branches: [ main, staging ]
+  pull_request:
+    branches: [ main, staging ]
+
+jobs:
+  deploy-production:
+    name: 🚀 Deploy to Production
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+    - name: 🚚 Get Latest Code
+      uses: actions/checkout@v3
+
+    - name: 📂 Deploy to cPanel
+      uses: easingthemes/ssh-deploy@main
+      with:
+        REMOTE_HOST: ${{ secrets.CPANEL_SSH_HOST }}
+        REMOTE_PORT: ${{ secrets.CPANEL_SSH_PORT }}
+        REMOTE_USER: ${{ secrets.CPANEL_USERNAME }}
+        SSH_PRIVATE_KEY: ${{ secrets.CPANEL_SSH_PRIVATE_KEY }}
+        ARGS: "-rlgoDzvc -i"
+        SOURCE: ""
+        TARGET: ${{ secrets.CPANEL_PATH }}
+        EXCLUDE: "/dist/, /.next/, /node_modules/, /.git/, /.git*/" 
+    
+    - name: 🔄 Rebuild & Restart PM2
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.CPANEL_SSH_HOST }}
+        port: ${{ secrets.CPANEL_SSH_PORT }}
+        username: ${{ secrets.CPANEL_USERNAME }}
+        key: ${{ secrets.CPANEL_SSH_PRIVATE_KEY }}
+        script: |
+          source ~/.bash_profile
+          cd ${{ secrets.CPANEL_PATH }}
+          echo ${{ secrets.DOTENV_PRODUCTION }} | base64 -d > .env
+          export DEPLOY_ENV=production
+          chmod +x rebuild.sh && bash rebuild.sh
+
+  deploy-staging:
+    name: 🚀 Deploy to Staging
+    if: github.ref == 'refs/heads/staging'
+    runs-on: ubuntu-latest
+    steps:
+    - name: 🚚 Get Latest Code
+      uses: actions/checkout@v3
+
+    - name: 📂 Deploy to cPanel
+      uses: easingthemes/ssh-deploy@main
+      with:
+        REMOTE_HOST: ${{ secrets.CPANEL_SSH_HOST }}
+        REMOTE_PORT: ${{ secrets.CPANEL_SSH_PORT }}
+        REMOTE_USER: ${{ secrets.CPANEL_USERNAME }}
+        SSH_PRIVATE_KEY: ${{ secrets.CPANEL_SSH_PRIVATE_KEY }}
+        ARGS: "-rlgoDzvc -i"
+        SOURCE: ""
+        TARGET: ${{ secrets.CPANEL_STAGING_PATH }}
+        EXCLUDE: "/dist/, /.next/, /node_modules/, /.git/, /.git*/" 
+    
+    - name: 🔄 Rebuild & Restart PM2
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.CPANEL_SSH_HOST }}
+        port: ${{ secrets.CPANEL_SSH_PORT }}
+        username: ${{ secrets.CPANEL_USERNAME }}
+        key: ${{ secrets.CPANEL_SSH_PRIVATE_KEY }}
+        script: |
+          source ~/.bash_profile
+          cd ${{ secrets.CPANEL_STAGING_PATH }}
+          echo ${{ secrets.DOTENV_STAGING }} | base64 -d > .env
+          export DEPLOY_ENV=staging
+          chmod +x rebuild.sh && bash rebuild.sh

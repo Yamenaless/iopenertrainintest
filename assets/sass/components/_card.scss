@@ -1,0 +1,76 @@
+.category-card {
+    position: relative;
+    box-shadow: 0 0 5px #ccc;
+    .card-body {
+        position: absolute;
+        bottom: 10px;
+        left: 0;
+        width: 80%;
+        height: 70px;
+        display: flex;
+        align-items: center;
+        background-color: #fff;
+        .course-title {
+            color: $blackColor;
+            padding-left: 15px;
+            font-size: 18px;
+            line-height: 1.3;
+            letter-spacing: 0.6;
+            &::after {
+                content: "";
+                position: absolute;
+                left: 0;
+                top: 5px;
+                // @include prefixer(transform, translateY(-50%), webkit moz o);
+                height: 80%;
+                width: 4px;
+                background-color: $redColor;
+            }
+        }
+    }
+}
+.course-card {
+    padding: 10px;
+    height: 100%;
+    box-shadow: 0 0 5px #ccc;
+    .card-body {
+        padding-top: 15px;
+        height: 86px;
+        .course-cat {
+            color: $grayColor2;
+            margin-bottom: 10px;
+            display: inline-block;
+        }
+        .course-title {
+            position: relative;
+            color: $blackColor;
+            padding-left: 15px;
+            font-size: 18px;
+            line-height: 1.3;
+            letter-spacing: 0.6;
+            &::after {
+                content: "\f0da";
+                font-family: "Font Awesome 5 Free";
+                font-weight: 900;
+                position: absolute;
+                left: 0;
+                top: 0;
+                color: $redColor;
+                padding-right: 5px;
+            }
+        }
+    }
+    .card-footer {
+        margin-top: 30px;
+        display: flex;
+        padding-left: -10px;
+        margin-left: -10px;
+        background-color: $redColor;
+        justify-content: space-between;
+        color: #eee;
+        padding: 3px 12px;
+        i {
+            padding-right: 5px;
+        }
+    }
+}

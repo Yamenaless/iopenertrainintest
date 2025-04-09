@@ -1,0 +1,27 @@
+//
+// Theme style
+//
+
+// Initialize
+@import "./tools/init";
+
+// Global Style
+@import "./components/heading";
+@import "./components/button";
+@import "./components/form";
+@import "./components/card";
+@import "./layout/header";
+@import "./layout/footer";
+@import "./layout/innerHeader";
+
+// pages
+@import "./pages/landing";
+@import "./pages/about";
+@import "./pages/city";
+@import "./pages/singleCategory.scss";
+@import "./pages/course";
+@import "./pages/singleCourse";
+@import "./pages/contact";
+
+@import "./base/rtl";
+@import "./base/grids";

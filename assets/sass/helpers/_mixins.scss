@@ -1,0 +1,99 @@
+/*
+ ** Prefix CSS3 Properties
+ ** Accept Arguments => Property Name, Property Values, Vendor Prefixes
+ ** Example: @include prefixer(transition, all .3s ease, webkit moz o)
+ */
+
+@mixin prefixer($property, $value, $prefixes: ()) {
+    @each $prefix in $prefixes {
+        #{'-' + $prefix + '-' + $property}: $value;
+    }
+    #{$property}: $value;
+}
+
+/*
+ ** Color linear gradient
+ ** Accept Arguments => Degree, Colors for gradation
+ ** Example: @include linear-gradient(75deg, #000, #ccc)
+ */
+
+@mixin linear-gradient($direction, $color-stops...) {
+    background: linear-gradient($direction, $color-stops) no-repeat padding-box;
+}
+
+/*
+ ** Overlay Mixin
+ ** Accept Argument => Color
+ ** Example: @include overlay(black, .5);
+ */
+
+@mixin overlay($color, $opacity) {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba($color: $color, $alpha: $opacity);
+}
+
+/*
+ ** Animation Mixin For All Browser
+ ** Accept Argument => Animation Name
+ ** Example: @include keyframes(SlideUpAndDown)
+ */
+
+@mixin keyframes($name) {
+    @-webkit-keyframes #{$name} {
+        @content;
+    }
+    @-moz-keyframes #{$name} {
+        @content;
+    }
+    @keyframes #{$name} {
+        @content;
+    }
+}
+
+/*
+ ** Center Element Horizontally and Vertically
+ ** Accept No Arguments
+ ** Example: @include centerer($dimension);
+ */
+
+@mixin centerer($width, $height) {
+    position: absolute;
+    width: $width;
+    height: $height;
+    top: 50%;
+    left: 50%;
+    @include prefixer(transform, translate(-50%, -50%), webkit moz o);
+}
+
+/*
+ ** Circle Mixin
+ ** Accept Argument => Dimensions
+ ** Example: @include circle(100px);
+ */
+
+@mixin circle($dimension) {
+    width: $dimension;
+    height: $dimension;
+    border-radius: 50%;
+}
+
+/*
+ ** even odd Mixin
+ ** Accept Argument => Dimensions
+ ** Example: @include even{ color: #000, background-color: #fff };
+ */
+@mixin even() {
+    &:nth-child(even) {
+        @content;
+    }
+}
+@mixin odd() {
+    &:nth-child(odd) {
+        @content;
+    }
+}

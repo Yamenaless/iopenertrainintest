@@ -1,0 +1,21 @@
+.msg-success {
+    padding: 20px;
+    .cover-msg {
+        display: flex;
+        justify-content: center;
+        .img-icon {
+            padding-right: 20px;
+            i {
+                font-size: 90px;
+                color: #079992;
+            }
+        }
+        .info-msg {
+            padding-top: 5px;
+            color: #079992 !important;
+            h4 {
+                color: #079992 !important;
+            }
+        }
+    }
+}

@@ -1,0 +1,39 @@
+.overview {
+    padding: 80px 0;
+    .title-overview-one {
+        color: $blueColor2;
+    }
+    .info {
+        padding: 25px 0;
+        h2 {
+            color: $redColor;
+        }
+        h3 {
+            color: $blackColor;
+            font-weight: bold;
+        }
+        h4 {
+            color: $blackColor;
+        }
+    }
+    .global-course {
+        .box {
+            border: 1px solid #ddd;
+            padding: 15px 0;
+            border-radius: 3px;
+            color: $blackColor;
+            border-left: 5px solid $redColor;
+            margin-bottom: 15px;
+            a {
+                text-decoration: none;
+                color: $blackColor;
+                text-align: center;
+                cursor: pointer;
+                i {
+                    color: $redColor;
+                    padding-right: 5px;
+                }
+            }
+        }
+    }
+}
