@@ -15,7 +15,7 @@ export default async function CancellationPage({ params: { lang } }) {
     return content.split("\n").map((paragraph, index) => {
       if (paragraph.startsWith("●")) {
         return (
-          <ul className="list-iopener items-center">
+          <ul key={index} className="list-iopener items-center">
             {" "}
             <li key={index}>{paragraph.substring(1).trim()}</li>{" "}
           </ul>
