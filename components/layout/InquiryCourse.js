@@ -189,13 +189,13 @@ const InquiryCourse = ({ lang, form_info, course }) => {
                                 </label>
                             </div> */}
                             <div className="mt-3">
-                                {/* <ReCAPTCHA
+                                <ReCAPTCHA
                                     sitekey={
                                         process.env
                                             .NEXT_PUBLIC_RECAPTCHA_SITE_KEY
                                     }
                                     onChange={onCaptchaChange}
-                                /> */}
+                                />
                             </div>
                             <div className="mt-3 d-grid">
                                 <button
